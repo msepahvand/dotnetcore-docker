@@ -1,44 +1,60 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using StudentApi.Core.Command;
+using StudentApi.Core.Query;
 
 namespace StudentApi.Web.Controllers
 {
-    [Route("api/[controller]")]
-    public class ValuesController : Controller
+    [Route("api/students")]
+    public class StudentsController : Controller
     {
-        // GET api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly IMediator _mediator;
+
+        public StudentsController(IMediator mediator)
         {
-            return new string[] { "value1", "value2" };
+            _mediator = mediator;
         }
 
-        // GET api/values/5
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var students = await _mediator.Send(new GetAllStudentsQuery());
+            return Ok(students);
+        }
+
         [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public async Task<IActionResult> Post([FromBody]CreateStudentCommand command)
         {
+            var result = await _mediator.Send(new CreateStudentCommand
+            {
+                GivenName = command?.GivenName,
+                FamilyName = command?.FamilyName
+            });
+
+            if (result.IsSuccess)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest();
         }
 
-        // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
         }
     }
 }
+

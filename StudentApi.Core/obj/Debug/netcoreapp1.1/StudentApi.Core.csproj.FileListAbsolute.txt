@@ -1,7 +1,0 @@
-C:\src\dotnetcore-docker\StudentApi\StudentApi.Core\bin\Debug\netcoreapp1.1\StudentApi.Core.deps.json
-C:\src\dotnetcore-docker\StudentApi\StudentApi.Core\bin\Debug\netcoreapp1.1\StudentApi.Core.dll
-C:\src\dotnetcore-docker\StudentApi\StudentApi.Core\obj\Debug\netcoreapp1.1\StudentApi.Core.csprojResolveAssemblyReference.cache
-C:\src\dotnetcore-docker\StudentApi\StudentApi.Core\obj\Debug\netcoreapp1.1\StudentApi.Core.AssemblyInfo.cs
-C:\src\dotnetcore-docker\StudentApi\StudentApi.Core\bin\Debug\netcoreapp1.1\StudentApi.Core.pdb
-C:\src\dotnetcore-docker\StudentApi\StudentApi.Core\obj\Debug\netcoreapp1.1\StudentApi.Core.dll
-C:\src\dotnetcore-docker\StudentApi\StudentApi.Core\obj\Debug\netcoreapp1.1\StudentApi.Core.pdb

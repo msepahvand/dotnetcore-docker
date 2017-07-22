@@ -1,7 +1,6 @@
 using System.Threading.Tasks;
 using StudentApi.Core.Models;
 using MediatR;
-using StudentApi.Core.Query;
 
 namespace StudentApi.Core.Command
 {

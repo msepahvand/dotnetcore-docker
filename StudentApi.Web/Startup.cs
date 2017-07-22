@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using StudentApi.Core.Models;
+using StudentApi.Web.IoC;
 
 namespace StudentApi.Web
 {
@@ -24,11 +26,28 @@ namespace StudentApi.Web
 
         public IConfigurationRoot Configuration { get; }
 
+        public IContainer ApplicationContainer { get; private set; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
+            // Add services to the collection.
             services.AddMvc();
+            var hostname = Environment.GetEnvironmentVariable("SQLSERVER_HOST") ?? "localhost\\SQLEXPRESS";
+            var userId = "sa";
+            var password = "password";
+            var connString = $"Data Source={hostname};Initial Catalog=DotnetCoreDockerDb;User ID={userId};Password={password};MultipleActiveResultSets=true";
+
+            services.AddDbContext<DataContext>(options => options.UseSqlServer(connString));
+
+            // Create the container builder.
+            var builder = new ContainerBuilder();
+            builder.RegisterModule(new MediatorModule());
+            builder.Populate(services);
+            this.ApplicationContainer = builder.Build();
+
+            // Create the IServiceProvider based on the container.
+            return new AutofacServiceProvider(this.ApplicationContainer);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

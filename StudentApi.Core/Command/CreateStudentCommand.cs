@@ -2,7 +2,7 @@ using StudentApi.Core.Models;
 using MediatR;
 using StudentApi.Core.Dto;
 
-namespace StudentApi.Core.Query
+namespace StudentApi.Core.Command
 {
     public class CreateStudentCommand : IRequest<CommandResult>
     {
