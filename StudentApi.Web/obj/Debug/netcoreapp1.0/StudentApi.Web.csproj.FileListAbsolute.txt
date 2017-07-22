@@ -1,0 +1,9 @@
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Web\bin\Debug\netcoreapp1.0\StudentApi.Web.deps.json
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Web\bin\Debug\netcoreapp1.0\StudentApi.Web.runtimeconfig.json
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Web\bin\Debug\netcoreapp1.0\StudentApi.Web.runtimeconfig.dev.json
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Web\bin\Debug\netcoreapp1.0\StudentApi.Web.dll
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Web\obj\Debug\netcoreapp1.0\StudentApi.Web.csprojResolveAssemblyReference.cache
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Web\obj\Debug\netcoreapp1.0\StudentApi.Web.AssemblyInfo.cs
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Web\bin\Debug\netcoreapp1.0\StudentApi.Web.pdb
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Web\obj\Debug\netcoreapp1.0\StudentApi.Web.dll
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Web\obj\Debug\netcoreapp1.0\StudentApi.Web.pdb

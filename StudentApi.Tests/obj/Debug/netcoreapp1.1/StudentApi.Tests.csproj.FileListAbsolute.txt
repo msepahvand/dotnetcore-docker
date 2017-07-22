@@ -1,0 +1,12 @@
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Tests\bin\Debug\netcoreapp1.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Tests\bin\Debug\netcoreapp1.1\xunit.runner.utility.netstandard15.dll
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Tests\bin\Debug\netcoreapp1.1\xunit.runner.reporters.netstandard15.dll
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Tests\bin\Debug\netcoreapp1.1\StudentApi.Tests.deps.json
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Tests\bin\Debug\netcoreapp1.1\StudentApi.Tests.runtimeconfig.json
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Tests\bin\Debug\netcoreapp1.1\StudentApi.Tests.runtimeconfig.dev.json
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Tests\bin\Debug\netcoreapp1.1\StudentApi.Tests.dll
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Tests\obj\Debug\netcoreapp1.1\StudentApi.Tests.csprojResolveAssemblyReference.cache
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Tests\obj\Debug\netcoreapp1.1\StudentApi.Tests.AssemblyInfo.cs
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Tests\bin\Debug\netcoreapp1.1\StudentApi.Tests.pdb
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Tests\obj\Debug\netcoreapp1.1\StudentApi.Tests.dll
+C:\src\dotnetcore-docker\StudentApi\StudentApi.Tests\obj\Debug\netcoreapp1.1\StudentApi.Tests.pdb
