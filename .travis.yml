@@ -12,7 +12,7 @@ script:
   - ./build.sh
 deploy:
   - provider: script
-    script: ./deploy.sh $TRAVIS_TAG $DOCKER_USERNAME $DOCKER_PASSWORD
+    script: ./deploy.sh $TRAVIS_TAG $SA_PASSWORD
     skip_cleanup: true
     on:
       tags: true
