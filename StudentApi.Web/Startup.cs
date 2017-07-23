@@ -35,7 +35,7 @@ namespace StudentApi.Web
             services.AddMvc();
             var hostname = Environment.GetEnvironmentVariable("SQLSERVER_HOST") ?? "localhost\\SQLEXPRESS";
             var userId = "sa";
-            var password = "password";
+            var password = Environment.GetEnvironmentVariable("SA_PASSWORD") ?? "password";
             var connString = $"Data Source={hostname};Initial Catalog=DotnetCoreDockerDb;User ID={userId};Password={password};MultipleActiveResultSets=true";
 
             services.AddDbContext<DataContext>(options => options.UseSqlServer(connString));
