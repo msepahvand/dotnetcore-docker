@@ -9,7 +9,11 @@ namespace StudentApi.Core.Models
             this.Database.EnsureCreated();
         }
 
-        public DbSet<Student> Students { get; set; }
+        public DataContext()
+        {
+            
+        }
+        public virtual DbSet<Student> Students { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
