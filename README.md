@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/elduderino87/dotnetcore-docker.svg?branch=master)](https://travis-ci.org/elduderino87/dotnetcore-docker)
+
 List all containers: `docker ps -aq`
 
 Stop all containers: `docker stop $(docker ps -aq)`
