@@ -1,5 +1,5 @@
 #!/bin/bash
 set -ev
-dotnet restore --no-cache
+dotnet restore StudentAPI.sln --no-cache
 dotnet test ./StudentAPI.Tests/StudentAPI.Tests.csproj
-dotnet publish -c Release -o out
+dotnet publish StudentAPI.sln -c Release -o out
