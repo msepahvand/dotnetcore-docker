@@ -11,7 +11,7 @@ using System;
 namespace StudentAPI.Core.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20170820130227_InitialCreate")]
+    [Migration("20170820131451_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
