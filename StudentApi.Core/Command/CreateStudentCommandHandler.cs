@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
-using StudentApi.Core.Models;
+using StudentAPI.Core.Models;
 using MediatR;
 
-namespace StudentApi.Core.Command
+namespace StudentAPI.Core.Command
 {
     public class CreateStudentCommandHandler : IAsyncRequestHandler<CreateStudentCommand, CommandResult>
     {

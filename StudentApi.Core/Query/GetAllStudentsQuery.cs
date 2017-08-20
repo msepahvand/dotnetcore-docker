@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using MediatR;
-using StudentApi.Core.Dto;
+using StudentAPI.Core.Dto;
 
-namespace StudentApi.Core.Query
+namespace StudentAPI.Core.Query
 {
     public class GetAllStudentsQuery : IRequest<IList<StudentDto>>
     {

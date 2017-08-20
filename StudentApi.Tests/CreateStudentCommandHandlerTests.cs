@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Moq;
-using StudentApi.Core.Command;
-using StudentApi.Core.Models;
+using StudentAPI.Core.Command;
+using StudentAPI.Core.Models;
 using Xunit;
 
-namespace StudentApi.Tests
+namespace StudentAPI.Tests
 {
     public class CreateStudentCommandHandlerTests
     {

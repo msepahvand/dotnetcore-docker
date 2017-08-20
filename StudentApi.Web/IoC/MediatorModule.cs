@@ -3,9 +3,9 @@ using System.Reflection;
 using Autofac;
 using Autofac.Features.Variance;
 using MediatR;
-using StudentApi.Core.Query;
+using StudentAPI.Core.Query;
 
-namespace StudentApi.Web.IoC
+namespace StudentAPI.Web.IoC
 {
     public class MediatorModule : Autofac.Module
     {

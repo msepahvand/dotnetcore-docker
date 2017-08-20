@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using StudentApi.Core.Models;
-using StudentApi.Web.IoC;
+using StudentAPI.Core.Models;
+using StudentAPI.Web.IoC;
 
-namespace StudentApi.Web
+namespace StudentAPI.Web
 {
     public class Startup
     {
@@ -31,15 +31,14 @@ namespace StudentApi.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            // Add services to the collection.
-            services.AddMvc();
-            var hostname = Environment.GetEnvironmentVariable("SQLSERVER_HOST") ?? "localhost\\SQLEXPRESS";
-            var userId = "sa";
-            var password = Environment.GetEnvironmentVariable("SA_PASSWORD") ?? "password";
-            var connString = $"Data Source={hostname};Initial Catalog=DotnetCoreDockerDb;User ID={userId};Password={password};MultipleActiveResultSets=true";
+            var server = Configuration["DatabaseServer"];
+            var database = Configuration["DatabaseName"];
+            var user = Configuration["DatabaseUser"];
+            var password = Configuration["DatabaseUserPassword"];
+            var connString = $"Server={server};Database={database};User={user};Password={password};";
 
             services.AddDbContext<DataContext>(options => options.UseSqlServer(connString));
-
+            services.AddMvc();
             // Create the container builder.
             var builder = new ContainerBuilder();
             builder.RegisterModule(new MediatorModule());

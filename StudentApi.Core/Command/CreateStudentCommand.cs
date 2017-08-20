@@ -1,8 +1,8 @@
-using StudentApi.Core.Models;
+using StudentAPI.Core.Models;
 using MediatR;
-using StudentApi.Core.Dto;
+using StudentAPI.Core.Dto;
 
-namespace StudentApi.Core.Command
+namespace StudentAPI.Core.Command
 {
     public class CreateStudentCommand : IRequest<CommandResult>
     {

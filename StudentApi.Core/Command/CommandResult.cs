@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace StudentApi.Core.Command
+namespace StudentAPI.Core.Command
 {
     public class CommandResult
     {

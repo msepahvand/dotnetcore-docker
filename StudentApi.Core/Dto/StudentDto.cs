@@ -1,4 +1,4 @@
-﻿namespace StudentApi.Core.Dto
+﻿namespace StudentAPI.Core.Dto
 {
     public class StudentDto
     {

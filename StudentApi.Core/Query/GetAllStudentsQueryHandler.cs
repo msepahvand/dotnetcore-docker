@@ -3,10 +3,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using StudentApi.Core.Dto;
-using StudentApi.Core.Models;
+using StudentAPI.Core.Dto;
+using StudentAPI.Core.Models;
 
-namespace StudentApi.Core.Query
+namespace StudentAPI.Core.Query
 {
     public class GetAllStudentsQueryHandler : IAsyncRequestHandler<GetAllStudentsQuery, IList<StudentDto>>
     {

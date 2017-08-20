@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
-using StudentApi.Core.Models;
+using StudentAPI.Core.Models;
 using MediatR;
-using StudentApi.Core.Dto;
+using StudentAPI.Core.Dto;
 
-namespace StudentApi.Core.Query
+namespace StudentAPI.Core.Query
 {
     public class GetStudentByIdQueryHandler : IAsyncRequestHandler<GetStudentByIdQuery, StudentDto>
     {
