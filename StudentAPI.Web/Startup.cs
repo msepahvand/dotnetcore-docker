@@ -18,9 +18,9 @@ namespace StudentAPI.Web
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables();
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+
             Configuration = builder.Build();
         }
 
@@ -31,14 +31,17 @@ namespace StudentAPI.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            var server = Configuration["DatabaseServer"];
-            var database = Configuration["DatabaseName"];
-            var user = Configuration["DatabaseUser"];
-            var password = Configuration["DatabaseUserPassword"];
-            var connString = $"Server={server};Database={database};User={user};Password={password};";
+            services.AddMvc();
+            var server = Environment.GetEnvironmentVariable("DatabaseServer") ?? "localhost\\SQLEXPRESS";
+            var database = Environment.GetEnvironmentVariable("DatabaseName") ?? "DotnetCoreDockerDb";
+            var user = Environment.GetEnvironmentVariable("DatabaseUser") ?? "sa";
+            var password = Environment.GetEnvironmentVariable("DatabaseUserPassword") ?? "password";
+            var connString = $"Server={server};Database={database};User={user};Password={password};MultipleActiveResultSets=true";
+
+            Console.WriteLine(connString);
 
             services.AddDbContext<DataContext>(options => options.UseSqlServer(connString));
-            services.AddMvc();
+
             // Create the container builder.
             var builder = new ContainerBuilder();
             builder.RegisterModule(new MediatorModule());
@@ -56,6 +59,7 @@ namespace StudentAPI.Web
             loggerFactory.AddDebug();
 
             app.UseMvc();
+            
         }
     }
 }

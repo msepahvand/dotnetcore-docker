@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace StudentAPI.Web
 {
@@ -7,12 +8,19 @@ namespace StudentAPI.Web
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
-        }
+            var config = new ConfigurationBuilder()
+              .AddCommandLine(args)
+              .Build();
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
+            var host = new WebHostBuilder()
+                .UseConfiguration(config)
+                .UseKestrel()
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build();
+
+            host.Run();
+        }
     }
 }

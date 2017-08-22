@@ -8,7 +8,7 @@ services:
             - db
         environment:
             DatabaseServer: "db"
-            DatabaseName: "mydb"
+            DatabaseName: "StudentsDb"
             DatabaseUser: "sa"
             DatabaseUserPassword: "Password1!"
     db:

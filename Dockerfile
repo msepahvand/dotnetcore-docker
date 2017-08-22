@@ -1,4 +1,13 @@
-FROM microsoft/aspnetcore-build
-WORKDIR /StudentApi.Web  
-COPY StudentApi.Web/out .
-ENTRYPOINT ["dotnet", "StudentApi.Web.dll"]
+FROM microsoft/dotnet:2.0-sdk AS build-env
+
+COPY . /app
+
+WORKDIR /app
+
+RUN dotnet publish -c Release -o out -r linux-x64
+
+EXPOSE 80/tcp
+
+RUN chmod +x ./entrypoint.sh
+
+CMD /bin/bash ./entrypoint.sh

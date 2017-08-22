@@ -9,13 +9,24 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0-preview2-final" />
     <PackageReference Include="Autofac" Version="4.6.1" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.0" />
+	<PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.0-preview2-final" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.0-preview2-final" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.0-preview2-final" />
+    <PackageReference Include="Microsoft.Extensions.Primitives" Version="2.0.0-preview2-final" />
   </ItemGroup>
 
+  <ItemGroup>    
+	<DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.0-preview2-final" />
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0-preview2-final" />
+  </ItemGroup>
+  
   <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
+      <Content Update="appsettings.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
   </ItemGroup>
 
   <ItemGroup>
