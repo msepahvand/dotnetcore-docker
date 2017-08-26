@@ -24,7 +24,10 @@ namespace StudentAPI.Core.Models
 
         public DataContext()
         {
-            this.Database.EnsureCreated();
+            if(this.Database != null)
+            {
+                this.Database.EnsureCreated();
+            }
         }
         public virtual DbSet<Student> Students { get; set; }
 
