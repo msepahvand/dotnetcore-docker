@@ -32,18 +32,9 @@ namespace StudentAPI.Web
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            var server = Environment.GetEnvironmentVariable("DatabaseServer") ?? "localhost\\SQLEXPRESS";
-            var database = Environment.GetEnvironmentVariable("DatabaseName") ?? "DotnetCoreDockerDb";
-            var user = Environment.GetEnvironmentVariable("DatabaseUser") ?? "sa";
-            var password = Environment.GetEnvironmentVariable("DatabaseUserPassword") ?? "password";
-            var connString = $"Server={server};Database={database};User={user};Password={password};MultipleActiveResultSets=true";
 
-            Console.WriteLine(connString);
-
-            services.AddDbContext<DataContext>(options => options.UseSqlServer(connString));
-
-            // Create the container builder.
             var builder = new ContainerBuilder();
+            builder.RegisterType<DataContext>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterModule(new MediatorModule());
             builder.Populate(services);
             this.ApplicationContainer = builder.Build();
