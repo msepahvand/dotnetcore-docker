@@ -24,10 +24,7 @@ namespace StudentAPI.Core.Models
 
         public DataContext()
         {
-            if(this.Database != null)
-            {
-                this.Database.EnsureCreated();
-            }
+            this.Database?.EnsureCreated();
         }
         public virtual DbSet<Student> Students { get; set; }
 
@@ -41,7 +38,7 @@ namespace StudentAPI.Core.Models
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
-        { 
+        {
             builder.UseSqlServer(ConnectionString);
             base.OnConfiguring(builder);
         }
