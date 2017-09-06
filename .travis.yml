@@ -3,9 +3,11 @@ sudo: required
 dist: trusty
 mono: none
 dotnet: 2.0.0
+services:
+ - docker
 before_install:
-- pip install --user awscli
-- export PATH=$PATH:$HOME/.local/bin
+ - pip install --user awscli
+ - export PATH=$PATH:$HOME/.local/bin
 install:
  - export DOTNET_CLI_TELEMETRY_OPTOUT=1
 before_script:
