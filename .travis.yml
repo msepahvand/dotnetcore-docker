@@ -8,8 +8,6 @@ services:
 before_install:
  - pip install --user awscli
  - export PATH=$PATH:$HOME/.local/bin
- - sudo apt-get update
- - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 install:
  - export DOTNET_CLI_TELEMETRY_OPTOUT=1
 before_script:
