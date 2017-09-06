@@ -15,12 +15,14 @@ before_script:
  - chmod a+x ./deploy.sh
 script:
  - ./build.sh
-deploy:
-  - provider: script
-    script: ./deploy.sh $TRAVIS_TAG $SA_PASSWORD
-    skip_cleanup: true
-    on:
-      tags: true
+after_script:
+ - ./deploy.sh
+# deploy:
+#   - provider: script
+#     script: ./deploy.sh $TRAVIS_TAG $SA_PASSWORD
+#     skip_cleanup: true
+#     on:
+#       tags: true
 env:
   global:
   - secure: V3MP7tv2VgnpGaoqjM7P3XhWb1fVyFvTMvQSSuryP5ffN8dUgG5EK6Fbjsv4GB1hsExTaN2U0CQhMMr+0huuuQ+UsG0WUlwpFOrT2GtwWyh2077idWNc/le7zvFdiN3sW0GyHI60Kh75Idmsn51GoPefUi/f2tVwV6lBacMFwGodnPSXQshGyI2PRSkbxzh8bbQU5QPjIMuKJcUCoNanfdYxcvPspttbG9RzURwBFmwy4gBy4ml3nlX2h1fPOHOupXZWmihkIiDwR0++fGDmJVXhH5iXyTG6ufeWhf4ucVBPYGRiIdxf4Yyb9EWRc98NlmYjOYJ6mihzV7z/usOejwyyEcJYxv8m/7P4IL/xV7yZWZaTvI534lXyRpUnWS3hGgrJTu9xHsIAhIgkXOa2mEQlKdpWTlJtEJWQXp/IQZpKD4ykDBeb+lccp3oMfTQDwUmHHe3IrPvsQKzClbQZhALHVY6+cCA4CyTrigemleEhaycNZCwsjOvz779oBx5z7qr7GC7S7U8NCUP3euK+GV5ov3zLB0AL87ObM40wFqkivV1gKGt6TfvyH9Gh2buIdSuSbaJujltSs1jRcZ6QRX3rnZ/b5Fq1+ALJpV0GfTByhrO7z5YuuRpNrqKlTvqgAgQH/uQw8JE5eqZRj2A99vTmP+VNFqoyUEAinV0xHO0=

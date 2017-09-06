@@ -1,6 +1,6 @@
 #!/bin/bash
 set -ev
 
-TAG=$1
-SA_PASSWORD=$2
-SQLSERVER_HOST=$3
+docker-compose build
+docker tag org/web:latest 599080142044.dkr.ecr.ap-southeast-2.amazonaws.com/org/web:latest
+docker push 599080142044.dkr.ecr.ap-southeast-2.amazonaws.com/org/web:latest
