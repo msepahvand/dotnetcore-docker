@@ -3,16 +3,23 @@ sudo: required
 dist: trusty
 mono: none
 dotnet: 2.0.0
+before_install:
+- pip install --user awscli
+- export PATH=$PATH:$HOME/.local/bin
 install:
-  - export DOTNET_CLI_TELEMETRY_OPTOUT=1
+ - export DOTNET_CLI_TELEMETRY_OPTOUT=1
 before_script:
-  - chmod a+x ./build.sh
-  - chmod a+x ./deploy.sh
+ - chmod a+x ./build.sh
+ - chmod a+x ./deploy.sh
 script:
-  - ./build.sh
+ - ./build.sh
 deploy:
   - provider: script
     script: ./deploy.sh $TRAVIS_TAG $SA_PASSWORD
     skip_cleanup: true
     on:
       tags: true
+env:
+  global:
+  - secure: V3MP7tv2VgnpGaoqjM7P3XhWb1fVyFvTMvQSSuryP5ffN8dUgG5EK6Fbjsv4GB1hsExTaN2U0CQhMMr+0huuuQ+UsG0WUlwpFOrT2GtwWyh2077idWNc/le7zvFdiN3sW0GyHI60Kh75Idmsn51GoPefUi/f2tVwV6lBacMFwGodnPSXQshGyI2PRSkbxzh8bbQU5QPjIMuKJcUCoNanfdYxcvPspttbG9RzURwBFmwy4gBy4ml3nlX2h1fPOHOupXZWmihkIiDwR0++fGDmJVXhH5iXyTG6ufeWhf4ucVBPYGRiIdxf4Yyb9EWRc98NlmYjOYJ6mihzV7z/usOejwyyEcJYxv8m/7P4IL/xV7yZWZaTvI534lXyRpUnWS3hGgrJTu9xHsIAhIgkXOa2mEQlKdpWTlJtEJWQXp/IQZpKD4ykDBeb+lccp3oMfTQDwUmHHe3IrPvsQKzClbQZhALHVY6+cCA4CyTrigemleEhaycNZCwsjOvz779oBx5z7qr7GC7S7U8NCUP3euK+GV5ov3zLB0AL87ObM40wFqkivV1gKGt6TfvyH9Gh2buIdSuSbaJujltSs1jRcZ6QRX3rnZ/b5Fq1+ALJpV0GfTByhrO7z5YuuRpNrqKlTvqgAgQH/uQw8JE5eqZRj2A99vTmP+VNFqoyUEAinV0xHO0=
+  - secure: kbDaUkSlUwPvLWBJA0sgellOpaKu6qAqaOIlEqBKo77io4GQScJH3/d9UyZgIw9eQnwjeKaPyKu1kAhNO5Hkni+gAVpcW8twseWR8TP/Fae+wVbj9r9fHK2yMf/CkJfoPpKNSLhahZ3bF+cBYW7WD3rQIO1D1mWlSoK04sUkv3ndJWfndpwYtkJWkIJA+e7qUXoZNaAxIhQW0KcxcYYo+fyxdtTxx7KZAA+e++Jxll9mbNCVeO01wijqu4q7y333rTBNDxAHMWGWTMPBOPALI8S3LgDWOehL+mn8zN7iDVrCkGxGf4hTGCH/ACZN11UOMuvNmFGUYWnWmMQRuZHgTFzr8m4tKK/D+hh9bnAnG43aWXUmHu6dAEoefzOuv9FfI2jwSHuYOV5pAdaZp9JzqTFTGFHuDgJXIDMW5EsuquRsxiEzGw7Ui+MiGTcaS47ummkBHe6X68c3iPLi3uvxFSVl5helLagKz57tVp2MoFdsMcpXXtu8zXlodA+QhSg0ihDAc12LNCGezB9BVBS1aXvdmC5mMtm/LnpLLHa5jzrppBEmsRFTKmHv6+gEk5x9KkVjiA/VjmduZ/n84KcI2aN+V2FtG5UcjjU6fqQlIvZDCEgSNi+wrNz9aY+M08y7CIYndAmky12Slkzp55EHCEgat86KKiegPcS3dRqyyaw=
