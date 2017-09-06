@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:2.0-sdk as build-env
+FROM microsoft/dotnet:2.0-sdk
 
 COPY . /app
 
