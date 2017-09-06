@@ -8,6 +8,8 @@ services:
 before_install:
  - pip install --user awscli
  - export PATH=$PATH:$HOME/.local/bin
+ - sudo apt-get update
+ - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 install:
  - export DOTNET_CLI_TELEMETRY_OPTOUT=1
 before_script:
@@ -16,10 +18,7 @@ before_script:
 script:
  - ./build.sh
 after_script:
- - eval $(aws ecr get-login --region ap-southeast-2)
- - docker-compose build
- - docker tag org/web:latest 599080142044.dkr.ecr.ap-southeast-2.amazonaws.com/org/web:latest
- - docker push 599080142044.dkr.ecr.ap-southeast-2.amazonaws.com/org/web:latest
+ - ./deploy.sh
 deploy:
   - provider: script
     script: ./deploy.sh $TRAVIS_TAG $SA_PASSWORD
