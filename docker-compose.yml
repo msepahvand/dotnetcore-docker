@@ -5,7 +5,7 @@ services:
         ports:
             - "5000:5000"
         image: org/web
-        depends_on:
+        links:
             - db
         environment:
             DatabaseServer: "db"
