@@ -8,7 +8,7 @@ services:
         links:
             - db
         cpu_shares: 300
-        mem_limit: 262400000
+        mem_limit: 512m
         environment:
             DatabaseServer: "db"
             DatabaseName: "StudentsDb"
@@ -17,7 +17,7 @@ services:
     db:
         image: "microsoft/mssql-server-linux"
         cpu_shares: 300
-        mem_limit: 262400000
+        mem_limit: 1024m
         ports:
             - "1433:1433"
         environment:
