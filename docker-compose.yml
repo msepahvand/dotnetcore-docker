@@ -1,4 +1,4 @@
-version: "3"
+version: "2"
 services:
     web:
         build: .
@@ -7,6 +7,8 @@ services:
         image: org/web
         links:
             - db
+        cpu_shares: 300
+        mem_limit: 262400000
         environment:
             DatabaseServer: "db"
             DatabaseName: "StudentsDb"
@@ -14,6 +16,8 @@ services:
             DatabaseUserPassword: "Password1!"
     db:
         image: "microsoft/mssql-server-linux"
+        cpu_shares: 300
+        mem_limit: 262400000
         ports:
             - "1433:1433"
         environment:
