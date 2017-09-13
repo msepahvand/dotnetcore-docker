@@ -3,8 +3,8 @@ services:
     web:
         build: .
         ports:
-            - "5000:5000"
-        image: org/web
+            - "80:5000"
+        image: 599080142044.dkr.ecr.ap-southeast-2.amazonaws.com/org/web
         links:
             - db
         cpu_shares: 300
