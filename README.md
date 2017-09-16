@@ -26,7 +26,7 @@ More about the [gotchas of docker-compose on the ECS CLI].
 
 
 2 - Configure the ECS CLI
-`ecs-cli configure --region ap-southeast-2 --access-key AWS_ACCESS_KEY --secret-key AWS_SECRET_KEY --cluster ecs-cli-demo`
+`ecs-cli configure --region ap-southeast-2 --access-key AWS_ACCESS_KEY --secret-key AWS_SECRET_KEY --cluster studentapi-demo`
 
 3 - Create an ECS cluster
 Here we create an ECS cluster which is 1 instance of type t2.medium, note that we need to generate a key pair in EC2 dashboard which maps to `EC2_KEY_PAIR_NAME` here
@@ -52,7 +52,7 @@ Create an ECS task definition and run the containers (From a directory containin
 
 [Building and shipping a .NET Core application with Docker and TravisCI]: <https://dusted.codes/building-and-shipping-a-dotnet-core-application-with-docker-and-travisci>
 
-[Docker cluster management on AWS]:<https://medium.com/@Electricste/amazon-ecs-using-the-cli-with-docker-compose-74287f19b181>
+[Docker cluster management on AWS]:<https://laszlo.cloud/Docker-cluster-management-on-AWS>
 
 [gotchas of docker-compose on the ECS CLI]:<https://laszlo.cloud/Docker-cluster-management-on-AWS>
 
