@@ -12,7 +12,7 @@ namespace StudentAPI.Core.Models
                 var server = Environment.GetEnvironmentVariable("DatabaseServer") ?? "localhost\\SQLEXPRESS";
                 var database = Environment.GetEnvironmentVariable("DatabaseName") ?? "DotnetCoreDockerDb";
                 var user = Environment.GetEnvironmentVariable("DatabaseUser") ?? "sa";
-                var password = Environment.GetEnvironmentVariable("DatabaseUserPassword") ?? "password";
+                var password = Environment.GetEnvironmentVariable("DatabaseUserPassword") ?? "P@$$w0rD";
                 return $"Server={server};Database={database};User={user};Password={password};MultipleActiveResultSets=true";
             }
         }
