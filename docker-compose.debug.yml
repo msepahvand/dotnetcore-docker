@@ -4,13 +4,6 @@ services:
         build: .
         ports:
             - "80:5000"
-        logging:
-            driver: awslogs
-            options:
-              awslogs-group: ecsDemoLogs
-              awslogs-region: ap-southeast-2
-              awslogs-stream-prefix: studentapi
-        image: 599080142044.dkr.ecr.ap-southeast-2.amazonaws.com/studentapi/web
         image: studentapi/web
         links:
             - db
