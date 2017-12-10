@@ -46,11 +46,13 @@ On Windows:
 
 2) `aws iam --region ap-southeast-2 attach-role-policy --role-name ecsExecutionRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy`
 3) `aws logs create-log-group --log-group-name ecsDemoLogs --region ap-southeast-2`
-4) `ecs-cli configure --cluster studentapi-demo-cluster --default-launch-type EC2 --region ap-southeast-2 --config-name ecsDemoConfig`
-5) `ecs-cli configure profile --access-key ACCESS_KEY_ID --secret-key SECRET_ACCESS_KEY --profile-name ecsDemoProfile`
-6) `ecs-cli configure profile default --profile-name ecsDemoProfile`
-7) `ecs-cli ps`
-8) `ecs-cli down --force`
+4) `ecs-cli configure profile --access-key ACCESS_KEY_ID --secret-key SECRET_ACCESS_KEY --profile-name ecsDemoProfile`
+5) `ecs-cli configure profile default --profile-name ecsDemoProfile`
+6) `ecs-cli configure --cluster studentapi-demo-cluster --default-launch-type EC2 --region ap-southeast-2 --config-name ecsDemoConfig`
+7) `ecs-cli up --keypair ecs-demo --capability-iam --size 1 --instance-type t2.medium --force`
+8) `ecs-cli compose --file docker-compose.yml up`
+9) `ecs-cli ps`
+10) `ecs-cli down --force`
 
 # References
 [.Net Core and SQL Server In Docker - Part 1]
