@@ -1,8 +1,10 @@
 FROM microsoft/dotnet:2.0.0-sdk
 
-COPY ./StudentAPI.Web/out /app
+COPY . /app
 
 WORKDIR /app
+
+RUN dotnet publish ./StudentAPI.Web/StudentAPI.Web.csproj -c Release -o out -r linux-x64
 
 EXPOSE 80/tcp
 
