@@ -1,0 +1,9 @@
+.git/*/*
+.vs/*/*
+StudentAPI.Tests\
+StudentAPI.Core\bin\
+StudentAPI.Core\obj\
+StudentAPI.Core\out\
+StudentAPI.Web\bin\
+StudentAPI.Web\obj\
+StudentAPI.Web\out\

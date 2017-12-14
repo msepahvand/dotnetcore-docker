@@ -1,45 +1,49 @@
 [![Build Status](https://travis-ci.org/msepahvand/dotnetcore-docker.svg?branch=master)](https://travis-ci.org/msepahvand/dotnetcore-docker)
 
-Start by:
+### Running locally
 
-`docker-compose build`
+1) `docker build -t studentapi .`
 
-`docker-compose up`
+2) Create a network:
+`docker network create studentapi-network`
 
-Helpful docker commands
+3) Start the SQL Server container and put it in a network: 
+`docker run --net=studentapi-network -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Password1!" -p 1433:1433 --name sqlserver -d microsoft/mssql-server-linux`
 
-List all containers: `docker ps -aq`
+4) Run the API container, put it in the same network:
+`docker run --net=studentapi-network --rm -p 5000:5000 --link sqlserver -e "DatabaseServer=sqlserver" -e "DatabaseUserPassword=Password1!" studentapi`
 
+**Helpful docker commands**
+
+List all containers: `docker ps -a`
 Stop all containers: `docker stop $(docker ps -aq)`
-
 Remove all containers: `docker rm $(docker ps -aq)`
 
-### Deploy to Amazon ECS
+### Deploy to ECS
 
 The ECS CLI allows us to deploy multi container apps with docker-compose. Currently ECS only supports version 2 of the docker-compose syntax.
 More about the [gotchas of docker-compose on the ECS CLI].
 
-1 - Install the ECS CLI:
+**Linux**
+1) Install the ECS CLI:
 `sudo curl -o /usr/local/bin/ecs-cli https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-linux-amd64-latest`
-
 `sudo chmod +x /usr/local/bin/ecs-cli`
 
-
-2 - Configure the ECS CLI
+2) Configure the ECS CLI
 `ecs-cli configure --region ap-southeast-2 --access-key AWS_ACCESS_KEY --secret-key AWS_SECRET_KEY --cluster studentapi-demo`
 
-3 - Create an ECS cluster
+3) Create an ECS cluster
 Here we create an ECS cluster which is 1 instance of type t2.medium, note that we need to generate a key pair in EC2 dashboard which maps to `EC2_KEY_PAIR_NAME` here
 `ecs-cli up --keypair EC2_KEY_PAIR_NAME --capability-iam --size 1 --instance-type t2.medium --force`
 
-4 - Create and start an ECS task
+4) Create and start an ECS task
 Create an ECS task definition and run the containers (From a directory containing a `docker-compose.yml`):
 `ecs-cli compose up`
 
-5 - List running containers (Gives you the status of the container cluster and if running the public IP)
+5) List running containers (Gives you the status of the container cluster and if running the public IP)
 `ecs-cli compose ps`
 
-On Windows:
+**Windows**
 [Install and configure the ECS CLI] first. Then:
 
 1) `aws iam --region ap-southeast-2 create-role --role-name ecsExecutionRole --assume-role-policy-document file://execution-assume-role.json`
