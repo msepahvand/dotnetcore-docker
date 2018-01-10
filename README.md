@@ -11,13 +11,16 @@
 `docker run --net=studentapi-network -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Password1!" -p 1433:1433 --name sqlserver -d microsoft/mssql-server-linux`
 
 4) Run the API container, put it in the same network:
-`docker run --net=studentapi-network --rm -p 5000:5000 --link sqlserver -e "DatabaseServer=sqlserver" -e "DatabaseUserPassword=Password1!" studentapi`
+`docker run --net=studentapi-network --rm -p 5000:5000 -e "DatabaseServer=sqlserver" -e "DatabaseUserPassword=Password1!" studentapi`
 
 **Helpful docker commands**
 
 List all containers: `docker ps -a`
+
 Stop all containers: `docker stop $(docker ps -aq)`
+
 Remove all containers: `docker rm $(docker ps -aq)`
+
 
 ### Deploy to ECS
 
