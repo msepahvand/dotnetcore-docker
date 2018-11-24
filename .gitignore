@@ -294,3 +294,6 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 **/out/*
+
+# Log Files
+log*.txt
