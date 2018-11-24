@@ -10,7 +10,7 @@ services:
               awslogs-group: ecsDemoLogs
               awslogs-region: ap-southeast-2
               awslogs-stream-prefix: studentapi
-        image: studentapi/web
+        image: 599080142044.dkr.ecr.ap-southeast-2.amazonaws.com/studentapi/web
         links:
             - db
         cpu_shares: 300

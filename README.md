@@ -57,7 +57,7 @@ Create an ECS task definition and run the containers (From a directory containin
 5) `ecs-cli configure profile default --profile-name ecsDemoProfile`
 6) `ecs-cli configure --cluster studentapi-demo-cluster --default-launch-type EC2 --region ap-southeast-2 --config-name ecsDemoConfig`
 7) `ecs-cli up --keypair ecs-demo --capability-iam --size 1 --instance-type t2.medium --force`
-8) `ecs-cli compose --file docker-compose.yml up`
+8) `ecs-cli compose --file docker-compose.yml up --cluster studentapi-demo-cluster`
 9) `ecs-cli ps`
 10) `ecs-cli down --force`
 
